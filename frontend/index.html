@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TADSflix</title>
+  <style>
+    label,
+    input {
+      display: block;
+      margin: 0.8em 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>TADSflix</h1>
+
+  <form method="post">
+    <label for="titulo">
+      Título:
+    </label>
+    <input type="text" required name="titulo" id="titulo">
+
+    <label for="genero">
+      Gênero:
+    </label>
+    <select name="genero" id="genero">
+      <option value="DRAMA">Drama</option>
+      <option value="COMEDIA">Comédia</option>
+      <option value="ACAO">Ação</option>
+    </select>
+
+    <label for="hype">
+      Hype:
+    </label>
+    <input type="range" name="hype" id="hype" min="1" max="5" value="3" step="1.0">
+
+    <input type="submit" value="Adicionar">
+    <input type="reset" value="Limpar">
+  </form>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Título</th>
+        <th>Gênero</th>
+        <th><em>Hype</em></th>
+        <th>Assistido?</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Tron Ares</td>
+        <td>Ação</td>
+        <td>🔥🕳️🕳️🕳️🕳️</td>
+        <td>Em 4/12/2025</td>
+      </tr>
+      <tr>
+        <td>As Branquelas</td>
+        <td>Comédia</td>
+        <td>🔥🔥🔥🔥🔥</td>
+        <td><button>📺 Assistido</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // dois paradigmas de programação:
+    // Programação Orientada a Objetos (cada elemento da página é um objeto)
+    // Programação Orientada a Eventos (click, tecla,)
+    var form = document.querySelector('form');
+    // adicionar um ouvinte de evento
+    form.addEventListener('submit', adicionar);
+
+    function adicionar(evento) {
+      evento.preventDefault(); // não envia o form
+
+      var titulo = form.titulo.value;
+      var genero = form.genero.value;
+      var hype   = form.hype.value;
+
+      // JSON: JavaScript Object Notation
+      var filme = { // OBJETO LITERAL
+        titulo,
+        genero,
+        hype
+      }; 
+
+      console.dir(filme);
+      // TODO: enviar o objeto para o backend
+    }
+
+
+  </script>
+
+</body>
+</html>
