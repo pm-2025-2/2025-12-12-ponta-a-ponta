@@ -65,7 +65,7 @@
       </tr>
     </tbody>
   </table>
-
+  <!-- http://localhost:5500/frontend/ -->
   <script>
     // dois paradigmas de programação:
     // Programação Orientada a Objetos (cada elemento da página é um objeto)
@@ -90,6 +90,22 @@
 
       console.dir(filme);
       // TODO: enviar o objeto para o backend
+
+      var backend = "http://localhost:5134/filme";
+
+      var headers = new Headers();
+      // dizer que estamos enviando um JSON
+      headers.append("Content-Type", "application/json");
+      
+      // converter o JSON em texto para enviar ao back
+      var body = JSON.stringify(filme);
+
+      // fazer requisições
+      fetch(backend, {
+        method: 'POST',
+        body,
+        headers
+      });
     }
 
 

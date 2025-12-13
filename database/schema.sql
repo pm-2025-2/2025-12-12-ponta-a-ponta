@@ -10,13 +10,13 @@ CREATE DATABASE tadsflix;
 
 \c tadsflix;
 
-CREATE TYPE GENERO AS ENUM ('DRAMA', 'COMEDIA', 'ACAO');
+-- CREATE TYPE GENERO AS ENUM ('DRAMA', 'COMEDIA', 'ACAO');
 
 DROP TABLE IF EXISTS filmes;
 
 CREATE TABLE IF NOT EXISTS filmes (
     titulo    TEXT    DEFAULT 'Sem título',
-    genero    GENERO  DEFAULT NULL,
+    genero    TEXT    DEFAULT NULL,
     hype      INTEGER DEFAULT 3,
     assistido BOOLEAN DEFAULT FALSE
 );
